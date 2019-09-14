@@ -1,0 +1,98 @@
+﻿@model FitCard.Models.Empresa
+
+@{
+    ViewData["Title"] = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Editar</h2>
+
+<h4>Empresa</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Editar" id="form">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="EmpresaRazao" class="control-label"></label>
+                <input asp-for="EmpresaRazao" class="form-control" />
+                <span asp-validation-for="EmpresaRazao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpresaNomeFantasia" class="control-label"></label>
+                <input asp-for="EmpresaNomeFantasia" class="form-control" />
+                <span asp-validation-for="EmpresaNomeFantasia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpresaCNPJ" class="control-label"></label>
+                <input asp-for="EmpresaCNPJ" class="form-control" data-mask="00.000.000/0000-00" />
+                <span asp-validation-for="EmpresaCNPJ" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpresaEmail" class="control-label"></label>
+                <input asp-for="EmpresaEmail" class="form-control" />
+                <span asp-validation-for="EmpresaEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpresaEndereco" class="control-label"></label>
+                <input asp-for="EmpresaEndereco" class="form-control" />
+                <span asp-validation-for="EmpresaEndereco" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpresaCidade" class="control-label"></label>
+                <input asp-for="EmpresaCidade" class="form-control" />
+                <span asp-validation-for="EmpresaCidade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpresaEstado" class="control-label"></label>
+                <input asp-for="EmpresaEstado" class="form-control" />
+                <span asp-validation-for="EmpresaEstado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpresaTelefone" class="control-label"></label>
+                <input asp-for="EmpresaTelefone" class="form-control" data-mask="(00) 0000-00000" />
+                <span asp-validation-for="EmpresaTelefone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpresaDataCadastro" class="control-label"></label>
+                <input asp-for="EmpresaDataCadastro" class="form-control" data-mask="00/00/0000" asp-format="{0:dd/MM/yyyy}" />
+                <span asp-validation-for="EmpresaDataCadastro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpresaStatus" class="control-label"></label>
+                <select asp-for="EmpresaStatus" class="form-control" asp-items="ViewBag.EmpresaStatus"></select>
+                <span asp-validation-for="EmpresaStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpresaAgencia" class="control-label"></label>
+                <input asp-for="EmpresaAgencia" class="form-control" data-mask="000-0" />
+                <span asp-validation-for="EmpresaAgencia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpresaConta" class="control-label"></label>
+                <input asp-for="EmpresaConta" class="form-control" data-mask="00.000-0" />
+                <span asp-validation-for="EmpresaConta" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="CategoriaId" class="control-label"></label>
+                <select asp-for="CategoriaId" class="form-control" asp-items="ViewBag.CategoriaId"></select>
+                <span asp-validation-for="CategoriaId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-outline-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-outline-primary">Voltar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @*<script src="~/js/valida_cpf_cnpj.js"></script>*@
+    @*<script src="~/js/Empresa.js"></script>*@
+}

@@ -1,0 +1,112 @@
+﻿@model FitCard.Models.Empresa
+
+@{
+    ViewData["Title"] = "Detalhes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Empresa</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EmpresaRazao)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EmpresaRazao)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EmpresaNomeFantasia)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EmpresaNomeFantasia)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EmpresaCNPJ)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EmpresaCNPJ)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EmpresaEmail)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EmpresaEmail)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EmpresaEndereco)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EmpresaEndereco)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EmpresaCidade)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EmpresaCidade)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EmpresaEstado)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EmpresaEstado)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EmpresaTelefone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EmpresaTelefone)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EmpresaDataCadastro)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EmpresaDataCadastro)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EmpresaStatus)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EmpresaStatus)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EmpresaAgencia)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EmpresaAgencia)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EmpresaConta)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EmpresaConta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Categoria)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Categoria.CategoriaNome)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Editar" asp-route-id="@Model.Id" class="btn btn-outline-primary">Editar</a> |
+    <a asp-action="Index" class="btn btn-outline-primary">Voltar</a>
+</div>
+<script>
+        $(document).ready(function () {
+
+            $('#EmpresaTelefone').mask('(00) 0000-0000'); //mask with dynamic syntax
+            //$('#EmpresaCNPJ').mask('000.000.000-00', '00.000.000/0000-00');
+            $('#EmpresaCNPJ').mask('00.000.000/0000-00');
+
+            $('#EmpresaAgencia').mask('000-0', { keepStatic: true });
+
+            $('#EmpresaConta').mask('00.000-0');
+            $('#DataCadastro').mask('00/00/0000');
+
+        });
+</script>

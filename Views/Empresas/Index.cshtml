@@ -1,0 +1,108 @@
+﻿@model IEnumerable<FitCard.Models.Empresa>
+
+@{
+    ViewData["Title"] = "Empresas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p>
+    <a asp-action="Novo" class="btn btn-outline-primary">Novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpresaRazao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpresaNomeFantasia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpresaCNPJ)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpresaEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpresaEndereco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpresaCidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpresaEstado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpresaTelefone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpresaDataCadastro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpresaStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpresaAgencia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpresaConta)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Categoria.CategoriaNome)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpresaRazao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpresaNomeFantasia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpresaCNPJ)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpresaEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpresaEndereco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpresaCidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpresaEstado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpresaTelefone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpresaDataCadastro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpresaStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpresaAgencia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpresaConta)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Categoria.CategoriaNome)
+            </td>
+            <td>
+                <a asp-action="Editar" asp-route-id="@item.Id" class="btn btn-outline-primary">Editar</a> 
+                <a asp-action="Detalhe" asp-route-id="@item.Id" class="btn btn-outline-primary">Detalhe</a> 
+                <a asp-action="Excluir" asp-route-id="@item.Id" class="btn btn-outline-primary">Excluir</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
