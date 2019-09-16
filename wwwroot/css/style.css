@@ -3973,7 +3973,7 @@ a > .bd-imagescaling-img {
   z-index: 100;
 }
 .bd-lightbox .loading {
-  background: #ffffff url(../../images/preloader01.gif) center center no-repeat;
+  background: #ffffff url(../images/preloader01.gif) center center no-repeat;
   border: 1px solid #b4b4b4;
   border-radius: 10px;
   box-shadow: 0 2px 5px #333;
@@ -10588,7 +10588,7 @@ table:not([class]) tbody > tr:nth-child(odd) > th,
   z-index: 100;
 }
 .bd-lightbox-5 .loading {
-  background: #ffffff url(../../images/preloader01.gif) center center no-repeat;
+  background: #ffffff url(../images/preloader01.gif) center center no-repeat;
   border: 1px solid #b4b4b4;
   border-radius: 10px;
   box-shadow: 0 2px 5px #333;
@@ -13249,7 +13249,7 @@ h2.bd-postheader-4 a {
 }
 .bd-slide-5 {
   position: relative;
-  background-image: url(../../images/583933_bd_media_id_6a46db88a1acbc4d2390dbae028c9c98.jpeg);
+  background-image: url(../images/583933_bd_media_id_6a46db88a1acbc4d2390dbae028c9c98.jpeg);
   background-repeat: repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -13261,7 +13261,7 @@ h2.bd-postheader-4 a {
 }
 .bd-slide-7 {
   position: relative;
-  background-image: url(../../images/938bf325787e6c8103ce976aa93bbe9c_charlespjAH2Ax4uWkunsplash.jpg);
+  background-image: url(../images/938bf325787e6c8103ce976aa93bbe9c_charlespjAH2Ax4uWkunsplash.jpg);
   background-repeat: repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -13273,7 +13273,7 @@ h2.bd-postheader-4 a {
 }
 .bd-slide-8 {
   position: relative;
-  background-image: url(../../images/544958cdc60633fb7ae192c0412c0beb_alexandruaceaXEB8y0nRRP4unsplash.jpg);
+  background-image: url(../images/544958cdc60633fb7ae192c0412c0beb_alexandruaceaXEB8y0nRRP4unsplash.jpg);
   background-repeat: repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -13285,7 +13285,7 @@ h2.bd-postheader-4 a {
 }
 .bd-slide-9 {
   position: relative;
-  background-image: url(../../images/4c621ce3b81302b5e3bc00f7cd0eb5ba_fernandohernandezJdoofvUDUwcunsplash.jpg);
+  background-image: url(../images/4c621ce3b81302b5e3bc00f7cd0eb5ba_fernandohernandezJdoofvUDUwcunsplash.jpg);
   background-repeat: repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -13297,7 +13297,7 @@ h2.bd-postheader-4 a {
 }
 .bd-slide-10 {
   position: relative;
-  background-image: url(../../images/b1c512cfd5a0881f5c1c2a78f6cfe592_oskaryildizcOkpTiJMGzAunsplash.jpg);
+  background-image: url(../images/b1c512cfd5a0881f5c1c2a78f6cfe592_oskaryildizcOkpTiJMGzAunsplash.jpg);
   background-repeat: repeat;
   background-attachment: scroll;
   background-position: center center;
