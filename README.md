@@ -1,2 +1,0 @@
-# FITCARD
-Modelo Didático
