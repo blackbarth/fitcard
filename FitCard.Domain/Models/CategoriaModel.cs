@@ -4,9 +4,9 @@ namespace FitCard.Domain.Models
 {
     public class CategoriaModel
     {
-        private int _id;
+        private Guid _id;
 
-        public int Id
+        public Guid Id
         {
             get { return _id; }
             set { _id = value; }

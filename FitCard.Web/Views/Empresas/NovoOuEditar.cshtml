@@ -1,0 +1,108 @@
+﻿@model FitCard.Domain.DTOs.Empresa.EmpresaDTOCreate
+
+@{
+    ViewData["Title"] = "NovoOuEditar";
+}
+<h4>Formulário de Empresa</h4>
+
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="NovoOuEditar">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+
+            <div class="form-group col-md-12">
+                <label asp-for="EmpresaRazao" class="control-label"></label>
+                <input asp-for="EmpresaRazao" class="form-control" />
+                <span asp-validation-for="EmpresaRazao" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="EmpresaNomeFantasia" class="control-label"></label>
+                    <input asp-for="EmpresaNomeFantasia" class="form-control" />
+                    <span asp-validation-for="EmpresaNomeFantasia" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="CategoriaId" class="control-label"></label>
+                    <select asp-for="CategoriaId" class="form-control" asp-items="ViewBag.CategoriaId"></select>
+
+                    <span asp-validation-for="CategoriaId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="EmpresaCNPJ" class="control-label"></label>
+                    <input asp-for="EmpresaCNPJ" placeholder="__.___.___/____-__" class="form-control" />
+                    <span asp-validation-for="EmpresaCNPJ" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="EmpresaEmail" class="control-label"></label>
+                    <input asp-for="EmpresaEmail" class="form-control" />
+                    <span asp-validation-for="EmpresaEmail" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpresaEndereco" class="control-label"></label>
+                <input asp-for="EmpresaEndereco" class="form-control" />
+                <span asp-validation-for="EmpresaEndereco" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="EmpresaCidade" class="control-label"></label>
+                    <input asp-for="EmpresaCidade" class="form-control" />
+                    <span asp-validation-for="EmpresaCidade" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="EmpresaEstado" class="control-label"></label>
+                    <input asp-for="EmpresaEstado" class="form-control" />
+                    <span asp-validation-for="EmpresaEstado" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="EmpresaTelefone" class="control-label"></label>
+                    <input asp-for="EmpresaTelefone" placeholder="(__) _____-____" class="form-control" />
+                    <span asp-validation-for="EmpresaTelefone" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="EmpresaDataCadastro" class="control-label"></label>
+                    <input asp-for="EmpresaDataCadastro" class="form-control" readonly="readonly" />
+                    <span asp-validation-for="EmpresaDataCadastro" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpresaStatus" class="control-label"></label>
+                <select asp-for="EmpresaStatus" class="form-control" asp-items="ViewBag.EmpresaStatus"></select>
+                <span asp-validation-for="EmpresaStatus" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="EmpresaAgencia" class="control-label"></label>
+                    <input asp-for="EmpresaAgencia" placeholder="___-_" class="form-control" />
+                    <span asp-validation-for="EmpresaAgencia" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="EmpresaConta" class="control-label"></label>
+                    <input asp-for="EmpresaConta" placeholder="__.___-_" class="form-control" />
+                    <span asp-validation-for="EmpresaConta" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <input type="submit" value="Salvar" class="btn btn-primary btn-block" />
+                </div>
+                <div class="form-group col-md-6">
+                    <a asp-action="Index" class="btn btn-secondary btn-block"><i class="fa fa-table"></i>Voltar a Lista</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script src="~/js/Empresa.js"></script>
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

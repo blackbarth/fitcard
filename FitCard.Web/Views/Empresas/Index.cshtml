@@ -1,0 +1,134 @@
+﻿@using FitCard.Domain.DTOs.Empresa;
+@model IEnumerable<EmpresaDTO>
+
+@{
+    ViewData["Title"] = "Empresas";
+}
+
+<h1>Empresas</h1>
+
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpresaRazao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpresaNomeFantasia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpresaCNPJ)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpresaEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpresaEndereco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpresaCidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpresaEstado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpresaTelefone)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.EmpresaDataCadastro)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.EmpresaStatus)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.EmpresaAgencia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpresaConta)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.CategoriaId)
+            </th>
+            <th><a asp-action="NovoOuEditar" class="btn btn-success"><i class="far fa-plus-square"></i> Empresa</a></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmpresaRazao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmpresaNomeFantasia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmpresaCNPJ)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmpresaEmail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmpresaEndereco)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmpresaCidade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmpresaEstado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmpresaTelefone)
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.EmpresaDataCadastro)
+                </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmpresaStatus)
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.EmpresaAgencia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmpresaConta)
+                </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Categoria.CategoriaNome)
+                </td>
+                <td>
+                    <a asp-action="NovoOuEditar" asp-route-id="@item.Id"><i class="fa fa-marker fa-lg"></i></a>
+                    <a class="text-danger ml-1" id="btn-confirm" onclick="ConfirmDelete('@item.Id')"><i class="fa fa-trash-alt fa-lg"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <h3 class="modal-title">Excluir Empresa</h3>
+                <a href="#" class="close" data-dismiss="modal">&times;</a>
+            </div>
+            <div class="modal-body">
+                <h4>Deseja realmente excluir este Registro?</h4>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-default" data-dismiss="modal">Cancelar</a>
+                <a href="#" class="btn btn-success" onclick="ExcluirEmpresa()">Confirmar</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<input type="hidden" id="hiddenId" />
+
+@section scripts{
+    <script src="~/js/Empresa.js"></script>
+}

@@ -2,6 +2,8 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 
 namespace FitCard.Domain.Entities
 {
@@ -9,13 +11,17 @@ namespace FitCard.Domain.Entities
     {
         public CategoriaEntity()
         {
-            Empresas = new Collection<EmpresaEntity>();
+            Empresa = new Collection<EmpresaEntity>();
         }
 
         [MaxLength(40)]
         [DisplayName("Categoria")]
         public string CategoriaNome { get; set; }
 
-        public virtual ICollection<EmpresaEntity> Empresas { get; set; }
+        public string CategoriaFotoUrl { get; set; }
+
+     
+        public virtual ICollection<EmpresaEntity> Empresa { get; set; }
+
     }
 }

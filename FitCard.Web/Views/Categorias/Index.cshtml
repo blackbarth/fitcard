@@ -1,0 +1,65 @@
+﻿@using FitCard.Domain.DTOs.Categoria;
+@model IEnumerable<CategoriaDTO>
+
+@{
+    ViewData["Title"] = "Categorias";
+}
+
+<h1>Categorias</h1>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.CategoriaNome)
+            </th>
+
+            <th><a asp-action="NovoOuEditar" class="btn btn-success"><i class="far fa-plus-square"></i> Categoria</a></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoriaNome)
+                </td>
+
+                <td>
+                    <a asp-action="NovoOuEditar" asp-route-id="@item.Id"><i class="fa fa-marker fa-lg"></i></a>
+                    <a class="text-danger ml-1" id="btn-confirm" onclick="ConfirmDelete('@item.Id')"><i class="fa fa-trash-alt fa-lg"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <h3 class="modal-title">Excluir Categoria</h3>
+                <a href="#" class="close" data-dismiss="modal">&times;</a>
+            </div>
+            <div class="modal-body">
+                <h4>Deseja realmente excluir este Registro?</h4>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-default" data-dismiss="modal">Cancelar</a>
+                <a href="#" class="btn btn-success" onclick="ExcluirCategoria()">Confirmar</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<input type="hidden" id="hiddenId" />
+
+@section scripts{
+    <script src="~/js/Categoria.js"></script>
+}

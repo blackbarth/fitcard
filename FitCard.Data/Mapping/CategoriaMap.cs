@@ -10,7 +10,9 @@ namespace FitCard.Data.Mapping
         {
             builder.ToTable("Categoria");
             builder.HasKey(c => c.Id);
-            builder.Property(c => c.CategoriaNome)
+            builder.Property(e => e.CategoriaFotoUrl).HasMaxLength(500);
+
+            builder.Property(e => e.CategoriaNome)
                 .IsRequired()
                 .HasMaxLength(40);
         }

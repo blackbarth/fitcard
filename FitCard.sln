@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitCard.Domain", "FitCard.Domain\FitCard.Domain.csproj", "{83DA40E6-413F-495A-B7DB-6E2ABE8912CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FitCard.Domain", "FitCard.Domain\FitCard.Domain.csproj", "{83DA40E6-413F-495A-B7DB-6E2ABE8912CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitCard.Service", "FitCard.Service\FitCard.Service.csproj", "{F1D80C07-D23C-4C21-8DE8-7C48E3D5E838}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FitCard.Service", "FitCard.Service\FitCard.Service.csproj", "{F1D80C07-D23C-4C21-8DE8-7C48E3D5E838}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitCard.Data", "FitCard.Data\FitCard.Data.csproj", "{EEA58417-2770-4A18-A02B-7E57D939B91D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FitCard.Data", "FitCard.Data\FitCard.Data.csproj", "{EEA58417-2770-4A18-A02B-7E57D939B91D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitCard.CrossCutting", "FitCard.CrossCutting\FitCard.CrossCutting.csproj", "{42909083-6B28-4E9E-8403-DAA882387DB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FitCard.CrossCutting", "FitCard.CrossCutting\FitCard.CrossCutting.csproj", "{42909083-6B28-4E9E-8403-DAA882387DB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitCard.Testes", "FitCard.Testes\FitCard.Testes.csproj", "{74AF3070-8429-4AA8-B102-BC8D5E31D951}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FitCard.Testes", "FitCard.Testes\FitCard.Testes.csproj", "{74AF3070-8429-4AA8-B102-BC8D5E31D951}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{5E9892AD-ABB8-4A22-8431-63A963DD45BC}"
 EndProject
@@ -20,6 +20,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WEB", "WEB", "{73FBA8CB-5CCA-4829-91C6-7B3599AC36EA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "APP", "APP", "{E8EBE1C7-CF0B-493D-B63F-C9AA97877B09}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FitCard.API", "FitCard.API\FitCard.API.csproj", "{2FD1288D-4ACC-4DB2-8DA1-33AD3AF46A4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitCard.Web", "FitCard.Web\FitCard.Web.csproj", "{04DE2698-0DB5-4324-977B-5C17192B34A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +51,14 @@ Global
 		{74AF3070-8429-4AA8-B102-BC8D5E31D951}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74AF3070-8429-4AA8-B102-BC8D5E31D951}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74AF3070-8429-4AA8-B102-BC8D5E31D951}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FD1288D-4ACC-4DB2-8DA1-33AD3AF46A4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FD1288D-4ACC-4DB2-8DA1-33AD3AF46A4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FD1288D-4ACC-4DB2-8DA1-33AD3AF46A4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FD1288D-4ACC-4DB2-8DA1-33AD3AF46A4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04DE2698-0DB5-4324-977B-5C17192B34A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04DE2698-0DB5-4324-977B-5C17192B34A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04DE2698-0DB5-4324-977B-5C17192B34A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04DE2698-0DB5-4324-977B-5C17192B34A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +67,8 @@ Global
 		{E6E2E9A2-0BB2-4A50-A0F9-260583011037} = {5E9892AD-ABB8-4A22-8431-63A963DD45BC}
 		{73FBA8CB-5CCA-4829-91C6-7B3599AC36EA} = {5E9892AD-ABB8-4A22-8431-63A963DD45BC}
 		{E8EBE1C7-CF0B-493D-B63F-C9AA97877B09} = {5E9892AD-ABB8-4A22-8431-63A963DD45BC}
+		{2FD1288D-4ACC-4DB2-8DA1-33AD3AF46A4F} = {E6E2E9A2-0BB2-4A50-A0F9-260583011037}
+		{04DE2698-0DB5-4324-977B-5C17192B34A6} = {73FBA8CB-5CCA-4829-91C6-7B3599AC36EA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {427DFA99-633D-4269-BE12-47B6D5F3DE3E}

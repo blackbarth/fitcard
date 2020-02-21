@@ -4,12 +4,12 @@ namespace FitCard.Domain.Models
 {
     public class EmpresaModel
     {
-        private int _empresaId;
+        private Guid _Id;
 
-        public int EmpresaId
+        public Guid Id
         {
-            get { return _empresaId; }
-            set { _empresaId = value; }
+            get { return _Id; }
+            set { _Id = value; }
         }
 
         private string _empresaRazao;

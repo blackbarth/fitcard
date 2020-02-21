@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using FitCard.Domain.DTOs;
+using FitCard.Domain.DTOs.Empresa;
 
 namespace FitCard.Domain.Interfaces.Services.Empresa
 {
@@ -9,8 +10,8 @@ namespace FitCard.Domain.Interfaces.Services.Empresa
     {
         Task<EmpresaDTO> Get(Guid id);
         Task<IEnumerable<EmpresaDTO>> GetAll();
-        Task<EmpresaDTOCreateResult> Post(EmpresaDTOCreate user);
-        Task<EmpresaDTOUpdateResult> Put(EmpresaDTOUpdate user);
+        Task<EmpresaDTOCreateResult> Post(EmpresaDTOCreate empresa);
+        Task<EmpresaDTOUpdateResult> Put(EmpresaDTOUpdate empresa);
         Task<bool> Delete(Guid id);
     }
 }
