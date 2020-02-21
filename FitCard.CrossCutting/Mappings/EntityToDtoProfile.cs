@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using FitCard.Domain.DTOs.Categoria;
+using FitCard.Domain.DTOs.Empresa;
 using FitCard.Domain.DTOs.User;
 using FitCard.Domain.Entities;
 
@@ -17,9 +18,9 @@ namespace FitCard.CrossCutting.Mappings
             CreateMap<CategoriaDTOCreateResult, CategoriaEntity>().ReverseMap();
             CreateMap<CategoriaDTOUpdateResult, CategoriaEntity>().ReverseMap();
 
-            CreateMap<UserDTO, UserEntity>().ReverseMap();
-            CreateMap<UserDTOCreateResult, UserEntity>().ReverseMap();
-            CreateMap<UserDTOUpdateResult, UserEntity>().ReverseMap();
+            CreateMap<EmpresaDTO, EmpresaEntity>().ReverseMap();
+            CreateMap<EmpresaDTOCreateResult, EmpresaEntity>().ReverseMap();
+            CreateMap<EmpresaDTOUpdateResult, EmpresaEntity>().ReverseMap();
 
         }
     }

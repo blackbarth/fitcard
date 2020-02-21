@@ -2,7 +2,6 @@
 using FitCard.Domain.DTOs.Categoria;
 using FitCard.Domain.DTOs.Empresa;
 using FitCard.Domain.DTOs.User;
-using FitCard.Domain.Models;
 
 namespace FitCard.CrossCutting.Mappings
 {
@@ -20,7 +19,7 @@ namespace FitCard.CrossCutting.Mappings
 
 
             CreateMap<EmpresaDTO, EmpresaDTOCreate>().ReverseMap();
-            CreateMap<EmpresaModel, EmpresaDTOUpdate>().ReverseMap();
+            CreateMap<EmpresaDTO, EmpresaDTOUpdate>().ReverseMap();
         }
     }
 }

@@ -8,12 +8,12 @@ namespace FitCard.Domain.DTOs.Categoria
 {
     public class CategoriaDTOCreateResult
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         [MaxLength(40)]
         [DisplayName("Categoria")]
         public string CategoriaNome { get; set; }
         [DisplayName("Logo")]
         public string CategoriaFotoUrl { get; set; }
-        public virtual ICollection<EmpresaEntity> Empresas { get; set; }
+       // public virtual ICollection<EmpresaEntity> Empresas { get; set; }
     }
 }

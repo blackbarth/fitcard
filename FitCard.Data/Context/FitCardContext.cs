@@ -1,5 +1,4 @@
-﻿using FitCard.Data.Mapping;
-using FitCard.Domain.Entities;
+﻿using FitCard.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace FitCard.Data.Context
@@ -13,12 +12,14 @@ namespace FitCard.Data.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
             //modelBuilder.Entity<CategoriaEntity>(new CategoriaMap().Configure);
             //modelBuilder.Entity<EmpresaEntity>(new EmpresaMap().Configure);
             //modelBuilder.Entity<UserEntity>(new UserMap().Configure);
             modelBuilder.Entity<CategoriaEntity>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
+                entity.ToTable("Categoria");
+                entity.HasKey(e => e.Id);
 
                 entity.Property(e => e.CategoriaFotoUrl).HasMaxLength(500);
 
@@ -29,11 +30,12 @@ namespace FitCard.Data.Context
 
             modelBuilder.Entity<EmpresaEntity>(entity =>
             {
+                entity.ToTable("Empresa");
+                entity.HasKey(e => e.Id);
 
-                entity.HasIndex(e => e.CategoriaId)
-                    .HasName("IX_Empresa_CategoriaId");
+                //entity.HasIndex(e => e.CategoriaId)
+                //    .HasName("IX_Empresa_CategoriaId");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.EmpresaAgencia).HasMaxLength(5);
 
@@ -62,13 +64,17 @@ namespace FitCard.Data.Context
 
                 entity.Property(e => e.EmpresaTelefone).HasMaxLength(20);
 
-                entity.HasOne(d => d.Categoria)
-                    .WithMany(p => p.Empresa)
-                    .HasForeignKey(d => d.CategoriaId);
+                //entity.HasOne(d => d.Categoria)
+                //    .WithMany(p => p.Empresa)
+                //    .HasForeignKey(d => d.CategoriaId);
+
+
+
             });
 
             modelBuilder.Entity<UserEntity>(entity =>
             {
+                entity.ToTable("User");
                 entity.HasKey(e => e.Id);
 
                 entity.Property(e => e.Email)

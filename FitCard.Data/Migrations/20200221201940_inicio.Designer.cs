@@ -10,21 +10,23 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FitCard.Data.Migrations
 {
     [DbContext(typeof(FitCardContext))]
-    [Migration("20200221103923_criacao_base")]
-    partial class criacao_base
+    [Migration("20200221201940_inicio")]
+    partial class inicio
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.1")
+                .HasAnnotation("ProductVersion", "3.1.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("FitCard.Domain.Entities.CategoriaEntity", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("CategoriaFotoUrl")
                         .HasColumnType("nvarchar(500)")
@@ -48,11 +50,13 @@ namespace FitCard.Data.Migrations
 
             modelBuilder.Entity("FitCard.Domain.Entities.EmpresaEntity", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<Guid?>("CategoriaId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("CategoriaId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("CreateAt")
                         .HasColumnType("datetime2");
@@ -112,17 +116,15 @@ namespace FitCard.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoriaId")
-                        .HasName("IX_Empresa_CategoriaId");
-
                     b.ToTable("Empresa");
                 });
 
             modelBuilder.Entity("FitCard.Domain.Entities.UserEntity", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime?>("CreateAt")
                         .HasColumnType("datetime2");
@@ -143,13 +145,6 @@ namespace FitCard.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("User");
-                });
-
-            modelBuilder.Entity("FitCard.Domain.Entities.EmpresaEntity", b =>
-                {
-                    b.HasOne("FitCard.Domain.Entities.CategoriaEntity", "Categoria")
-                        .WithMany("Empresa")
-                        .HasForeignKey("CategoriaId");
                 });
 #pragma warning restore 612, 618
         }

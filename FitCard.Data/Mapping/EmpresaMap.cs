@@ -9,9 +9,9 @@ namespace FitCard.Data.Mapping
         public void Configure(EntityTypeBuilder<EmpresaEntity> builder)
         {
             builder.ToTable("Empresa");
-            builder.HasKey(c=> c.Id);
-            builder.HasIndex(e => e.CategoriaId)
-                .HasName("IX_Empresa_CategoriaId");
+            builder.HasKey(c => c.Id);
+            //builder.HasIndex(e => e.CategoriaId)
+            //    .HasName("IX_Empresa_CategoriaId");
 
 
             builder.Property(e => e.EmpresaAgencia).HasMaxLength(5);
@@ -41,9 +41,9 @@ namespace FitCard.Data.Mapping
 
             builder.Property(e => e.EmpresaTelefone).HasMaxLength(20);
 
-            builder.HasOne(d => d.Categoria)
-                .WithMany(p => p.Empresa)
-                .HasForeignKey(d => d.CategoriaId);
+            //builder.HasOne(d => d.Categoria)
+            //    .WithMany(p => p.Empresa)
+            //    .HasForeignKey(d => d.CategoriaId);
         }
     }
 }

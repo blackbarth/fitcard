@@ -4,9 +4,9 @@ namespace FitCard.Domain.Models
 {
     public class UserModel
     {
-		private Guid _id;
+		private int _id;
 
-		public Guid Id
+		public int Id
 		{
 			get { return _id; }
 			set { _id = value; }

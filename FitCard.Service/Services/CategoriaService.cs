@@ -23,7 +23,7 @@ namespace FitCard.Service.Services
             _mapper = mapper;
         }
 
-        public async Task<CategoriaDTO> Get(Guid id)
+        public async Task<CategoriaDTO> Get(int id)
         {
             var entity = await _repository.SelectAsync(id);
             var cat = _mapper.Map<CategoriaDTO>(entity) ?? new CategoriaDTO();
@@ -61,7 +61,7 @@ namespace FitCard.Service.Services
             return _mapper.Map<CategoriaDTOUpdateResult>(result);
         }
 
-        public async Task<bool> Delete(Guid id)
+        public async Task<bool> Delete(int id)
         {
             return await _repository.DeleteAsync(id);
         }

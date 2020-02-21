@@ -8,12 +8,12 @@ namespace FitCard.Domain.Interfaces.Services.Categoria
 {
     public interface ICategoriaService
     {
-        Task<CategoriaDTO> Get(Guid id);
+        Task<CategoriaDTO> Get(int id);
         Task<IEnumerable<CategoriaDTO>> GetAll();
         List<CategoriaDTO> Todos();
         Task<CategoriaDTOCreateResult> Post(CategoriaDTOCreate categoria);
         CategoriaDTOCreateResult Add(CategoriaDTOCreate categoria);
         Task<CategoriaDTOUpdateResult> Put(CategoriaDTOUpdate categoria);
-        Task<bool> Delete(Guid id);
+        Task<bool> Delete(int id);
     }
 }

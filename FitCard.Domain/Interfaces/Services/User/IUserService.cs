@@ -7,11 +7,11 @@ namespace FitCard.Domain.Interfaces.Services.User
 {
     public interface IUserService
     {
-        Task<UserDTO> Get(Guid id);
+        Task<UserDTO> Get(int id);
         Task<IEnumerable<UserDTO>> GetAll();
         IEnumerable<UserDTO> GetAllNoAsync();
         Task<UserDTOCreateResult> Post(UserDTOCreate user);
         Task<UserDTOUpdateResult> Put(UserDTOUpdate user);
-        Task<bool> Delete(Guid id);
+        Task<bool> Delete(int id);
     }
 }

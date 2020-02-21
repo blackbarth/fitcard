@@ -7,7 +7,7 @@ namespace FitCard.Domain.DTOs.Empresa
 {
     public class EmpresaDTOUpdateResult
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         [Required(ErrorMessage = "Razão Social é Preenchimento Obrigatório")]
         [DisplayName("Razão Social")]
         [MaxLength(100)]
@@ -61,9 +61,9 @@ namespace FitCard.Domain.DTOs.Empresa
         public string EmpresaConta { get; set; }
 
 
-        public CategoriaEntity Categoria { get; set; }
+        //public CategoriaEntity Categoria { get; set; }
 
         [DisplayName("Categoria")]
-        public Guid CategoriaId { get; set; }
+        public int CategoriaId { get; set; }
     }
 }

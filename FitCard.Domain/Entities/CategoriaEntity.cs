@@ -9,10 +9,10 @@ namespace FitCard.Domain.Entities
 {
     public class CategoriaEntity : BaseEntity
     {
-        public CategoriaEntity()
-        {
-            Empresa = new Collection<EmpresaEntity>();
-        }
+        //public CategoriaEntity()
+        //{
+        //    Empresa = new Collection<EmpresaEntity>();
+        //}
 
         [MaxLength(40)]
         [DisplayName("Categoria")]
@@ -20,8 +20,8 @@ namespace FitCard.Domain.Entities
 
         public string CategoriaFotoUrl { get; set; }
 
-     
-        public virtual ICollection<EmpresaEntity> Empresa { get; set; }
+
+        //public virtual ICollection<EmpresaEntity> Empresa { get; set; }
 
     }
 }

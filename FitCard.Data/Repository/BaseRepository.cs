@@ -24,10 +24,10 @@ namespace FitCard.Data.Repository
         {
             try
             {
-                if (item.Id == Guid.Empty)
-                {
-                    item.Id = Guid.NewGuid();
-                }
+                //if (item.Id == Guid.Empty)
+                //{
+                //    item.Id = Guid.NewGuid();
+                //}
                 item.CreateAt = DateTime.UtcNow;
                 _dataset.Add(item);
                 await _context.SaveChangesAsync();
@@ -64,7 +64,7 @@ namespace FitCard.Data.Repository
 
 
 
-        public async Task<bool> DeleteAsync(Guid id)
+        public async Task<bool> DeleteAsync(int id)
         {
             try
             {
@@ -83,7 +83,7 @@ namespace FitCard.Data.Repository
             }
         }
 
-        public bool Delete(Guid id)
+        public bool Delete(int id)
         {
             try
             {
@@ -102,11 +102,11 @@ namespace FitCard.Data.Repository
             }
         }
 
-        public async Task<T> SelectAsync(Guid id)
+        public async Task<T> SelectAsync(int id)
         {
             try
             {
-                return await _dataset.SingleOrDefaultAsync(p => p.Id.Equals(id));
+                return await _dataset.AsNoTracking().SingleOrDefaultAsync(p => p.Id.Equals(id));
             }
             catch (Exception ex)
             {
@@ -118,7 +118,7 @@ namespace FitCard.Data.Repository
         {
             try
             {
-                return await _dataset.ToListAsync();
+                return await _dataset.AsNoTracking().ToListAsync();
             }
             catch (Exception ex)
             {
@@ -131,7 +131,7 @@ namespace FitCard.Data.Repository
 
             try
             {
-                return _dataset.ToList();
+                return _dataset.AsNoTracking().ToList();
             }
             catch (Exception ex)
             {
@@ -139,19 +139,19 @@ namespace FitCard.Data.Repository
             }
         }
 
-        public async Task<bool> ExistAsync(Guid id)
+        public async Task<bool> ExistAsync(int id)
         {
-            return await _dataset.AnyAsync(p => p.Id.Equals(id));
+            return await _dataset.AsNoTracking().AnyAsync(p => p.Id.Equals(id));
         }
 
         public T Insert(T item)
         {
             try
             {
-                if (item.Id == Guid.Empty)
-                {
-                    item.Id = Guid.NewGuid();
-                }
+                //if (item.Id == Guid.Empty)
+                //{
+                //    item.Id = Guid.NewGuid();
+                //}
                 item.CreateAt = DateTime.UtcNow;
                 _dataset.Add(item);
                 _context.SaveChangesAsync();

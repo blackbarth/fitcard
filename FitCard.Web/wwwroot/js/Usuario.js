@@ -8,12 +8,9 @@ var ConfirmDelete = function (Id) {
 
 var ExcluirUsuario = function () {
 
-
-
     var empId = $("#hiddenId").val();
 
     $.ajax({
-
         type: "POST",
         url: "/Usuarios/Delete",
         data: { Id: empId },
@@ -24,6 +21,6 @@ var ExcluirUsuario = function () {
             window.location.reload();
         }
 
-    })
+    });
 
 }

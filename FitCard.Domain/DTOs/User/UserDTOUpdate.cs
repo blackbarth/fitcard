@@ -6,7 +6,7 @@ namespace FitCard.Domain.DTOs.User
     public class UserDTOUpdate
     {
         [Required(ErrorMessage = "Id é um campo obrigatório!")]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         [Required(ErrorMessage = "Nome é um campo obrigatório!")]
         [StringLength(60, ErrorMessage = "O tamanho maximo para nome é de {1} caracteres.")]
         public string Nome { get; set; }

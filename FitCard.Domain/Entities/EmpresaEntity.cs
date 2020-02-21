@@ -1,6 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 
 namespace FitCard.Domain.Entities
 {
@@ -19,8 +17,8 @@ namespace FitCard.Domain.Entities
         public string EmpresaStatus { get; set; }
         public string EmpresaAgencia { get; set; }
         public string EmpresaConta { get; set; }
-        public Guid? CategoriaId { get; set; }
+        public int CategoriaId { get; set; }
 
-        public virtual CategoriaEntity Categoria { get; set; }
+        //public virtual CategoriaEntity Categoria { get; set; }
     }
 }

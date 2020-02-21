@@ -39,7 +39,7 @@ namespace FitCard.API.Controllers
         [Authorize("Bearer")]
         [HttpGet]
         [Route("{id}")]
-        public async Task<ActionResult> Get(Guid id)
+        public async Task<ActionResult> Get(int id)
         {
             if (!ModelState.IsValid)
             {
@@ -109,7 +109,7 @@ namespace FitCard.API.Controllers
 
         [Authorize("Bearer")]
         [HttpDelete("{id}")]
-        public async Task<ActionResult> Delete(Guid id)
+        public async Task<ActionResult> Delete(int id)
         {
             if (!ModelState.IsValid)
             {

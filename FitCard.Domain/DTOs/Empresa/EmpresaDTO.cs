@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using FitCard.Domain.DTOs.Categoria;
 using FitCard.Domain.Entities;
 using FitCard.Domain.Validations;
 
@@ -8,7 +9,7 @@ namespace FitCard.Domain.DTOs.Empresa
 {
     public class EmpresaDTO
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         [Required(ErrorMessage = "Razão Social é Preenchimento Obrigatório")]
         [DisplayName("Razão Social")]
@@ -63,10 +64,10 @@ namespace FitCard.Domain.DTOs.Empresa
         public string EmpresaConta { get; set; }
 
 
-        public CategoriaEntity Categoria { get; set; }
+        //public CategoriaDTO Categoria { get; set; }
 
         [DisplayName("Categoria")]
-        public Guid CategoriaId { get; set; }
+        public int CategoriaId { get; set; }
 
     }
 }

@@ -25,9 +25,9 @@ namespace FitCard.Web.Controllers
         }
 
         // GET: User/NovoOuEditar
-        public async Task<ActionResult> NovoOuEditar(Guid id)
+        public async Task<ActionResult> NovoOuEditar(int id=0)
         {
-            if (id == Guid.Empty)
+            if (id == 0)
             {
                 return View(new CategoriaDTOCreate());
             }
@@ -51,7 +51,7 @@ namespace FitCard.Web.Controllers
 
                 if (ModelState.IsValid)
                 {
-                    if (categoria.Id == Guid.Empty)
+                    if (categoria.Id == 0)
                     {
                         await _serService.Post(categoria);
                     }
@@ -74,7 +74,7 @@ namespace FitCard.Web.Controllers
         }
 
 
-        public JsonResult Delete(Guid Id)
+        public JsonResult Delete(int Id)
         {
             _serService.Delete(Id);
             return Json(new { status = "Success" });

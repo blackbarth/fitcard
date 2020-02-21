@@ -8,10 +8,10 @@ namespace FitCard.Domain.Interfaces.Services.Empresa
 {
     public interface IEmpresaService
     {
-        Task<EmpresaDTO> Get(Guid id);
+        Task<EmpresaDTO> Get(int id);
         Task<IEnumerable<EmpresaDTO>> GetAll();
         Task<EmpresaDTOCreateResult> Post(EmpresaDTOCreate empresa);
         Task<EmpresaDTOUpdateResult> Put(EmpresaDTOUpdate empresa);
-        Task<bool> Delete(Guid id);
+        Task<bool> Delete(int id);
     }
 }

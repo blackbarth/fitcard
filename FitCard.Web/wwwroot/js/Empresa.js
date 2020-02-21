@@ -13,18 +13,17 @@ var ExcluirEmpresa = function () {
     var empId = $("#hiddenId").val();
 
     $.ajax({
-
         type: "POST",
         url: "/Empresas/Delete",
         data: { Id: empId },
-        success: function (result) {
+        success: function(result) {
 
             $("#myModal").modal("hide");
             $("#row_" + empId).remove();
             window.location.reload();
         }
 
-    })
+    });
 
 }
 

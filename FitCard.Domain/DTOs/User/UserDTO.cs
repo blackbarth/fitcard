@@ -5,7 +5,7 @@ namespace FitCard.Domain.DTOs.User
 {
     public class UserDTO
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Nome { get; set; }
         public string Email { get; set; }
         [DisplayName("Data de Criação")]

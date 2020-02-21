@@ -21,7 +21,7 @@ namespace FitCard.Service.Services
             _mapper = mapper;
         }
 
-        public async Task<UserDTO> Get(Guid id)
+        public async Task<UserDTO> Get(int id)
         {
             var entity = await _repository.SelectAsync(id);
             var user = _mapper.Map<UserDTO>(entity);
@@ -51,7 +51,7 @@ namespace FitCard.Service.Services
             return _mapper.Map<UserDTOUpdateResult>(result);
         }
 
-        public async Task<bool> Delete(Guid id)
+        public async Task<bool> Delete(int id)
         {
             return await _repository.DeleteAsync(id);
         }

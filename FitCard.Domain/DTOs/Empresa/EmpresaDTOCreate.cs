@@ -9,7 +9,7 @@ namespace FitCard.Domain.DTOs.Empresa
 {
     public class EmpresaDTOCreate : IValidatableObject
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         [Required(ErrorMessage = "Razão Social é Preenchimento Obrigatório")]
         [DisplayName("Razão Social")]
         [MaxLength(100)]
@@ -67,8 +67,8 @@ namespace FitCard.Domain.DTOs.Empresa
         //public CategoriaEntity Categoria { get; set; }
 
         [DisplayName("Categoria")]
-        public Guid CategoriaId { get; set; }
-         public virtual CategoriaEntity Categoria { get; set; }
+        public int CategoriaId { get; set; }
+        //public virtual CategoriaEntity Categoria { get; set; }
 
         //public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         //{
@@ -125,7 +125,7 @@ namespace FitCard.Domain.DTOs.Empresa
         //}
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            if (CategoriaId == Guid.Parse("8439A2C2-208E-4F36-A2F6-C5688119C377") && string.IsNullOrEmpty(EmpresaTelefone))
+            if (CategoriaId == 1 && string.IsNullOrEmpty(EmpresaTelefone))
                 yield return new ValidationResult("O campo Telefone é obrigatório caso categoria seja Supermercado!", new string[] { "EmpresaTelefone" });
         }
     }

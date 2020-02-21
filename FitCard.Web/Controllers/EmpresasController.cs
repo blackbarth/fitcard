@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using FitCard.Domain.Entities;
 
 namespace FitCard.Web.Controllers
 {
@@ -31,7 +32,7 @@ namespace FitCard.Web.Controllers
 
 
         // GET: empresas/NovoOuEditar
-        public async Task<ActionResult> NovoOuEditar(Guid id)
+        public async Task<ActionResult> NovoOuEditar(int id)
         {
             var itemsCategorias = await _serviceCategoria.GetAll();
             List<SelectListItem> items = new List<SelectListItem>();
@@ -43,17 +44,17 @@ namespace FitCard.Web.Controllers
                 items.Add(new SelectListItem { Text = categoriaDto.CategoriaNome, Value = categoriaDto.Id.ToString() });
             }
 
-            //ViewData["CategoriaId"] = new SelectList(itemsCategorias, "CategoriaId", "CategoriaNome");
+
             ViewData["CategoriaId"] = new SelectList(items, "Value", "Text");
 
             var status = new[]{
-                new SelectListItem(){ Value = "A", Text = "Ativo"},
-                new SelectListItem(){ Value = "I", Text = "Inativo"}
+                new SelectListItem(){ Value = "ATIVO", Text = "Ativo"},
+                new SelectListItem(){ Value = "INATIVO", Text = "Inativo"}
             };
             ViewData["EmpresaStatus"] = new SelectList(status, "Value", "Text");
 
 
-            if (id == Guid.Empty)
+            if (id == 0)
             {
                 return View(new EmpresaDTOCreate());
             }
@@ -76,10 +77,8 @@ namespace FitCard.Web.Controllers
 
             if (ModelState.IsValid)
             {
-                if (empresa.Id == Guid.Empty)
+                if (empresa.Id == 0)
                 {
-                   // var cat = await _serviceCategoria.Get(empresa.CategoriaId);
-                    //empresa.Categoria = _mapper.Map<CategoriaEntity>(cat);
                     await _service.Post(empresa);
                 }
                 else
