@@ -29,36 +29,34 @@
 
                 <td>
                     <a asp-action="NovoOuEditar" asp-route-id="@item.Id"><i class="fa fa-marker fa-lg"></i></a>
-                    <a class="text-danger ml-1" id="btn-confirm" onclick="ConfirmDelete('@item.Id')"><i class="fa fa-trash-alt fa-lg"></i></a>
+                    <a class="text-danger ml-1" id="btn-confirm" data-toggle="modal" onclick="ConfirmDelete('@item.Id')" data-target="#exampleModalCenter"><i class="fa fa-trash-alt fa-lg"></i></a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
 
-<div class="modal fade" id="myModal">
-    <div class="modal-dialog">
+<input type="hidden" id="hiddenId" />
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-
-                <h3 class="modal-title">Excluir Categoria</h3>
-                <a href="#" class="close" data-dismiss="modal">&times;</a>
+                <h5 class="modal-title" id="exampleModalLongTitle">Excluir Registro</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
-                <h4>Deseja realmente excluir este Registro?</h4>
+                <h4>Deseja realmente excluir este registro?</h4>
             </div>
             <div class="modal-footer">
-                <a href="#" class="btn btn-default" data-dismiss="modal">Cancelar</a>
-                <a href="#" class="btn btn-success" onclick="ExcluirCategoria()">Confirmar</a>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" onclick="DeleteRegistro()" data-dismiss="modal">Confirmar</button>
             </div>
-
         </div>
-
     </div>
-
 </div>
-
-<input type="hidden" id="hiddenId" />
 
 @section scripts{
     <script src="~/js/Categoria.js"></script>

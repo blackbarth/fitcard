@@ -1,26 +1,16 @@
-﻿
-var ConfirmDelete = function (Id) {
-
-    $("#hiddenId").val(Id);
-    $("#myModal").modal('show');
-
+﻿var ConfirmDelete = function (id) {
+    $("#hiddenId").val(id);
 }
 
-var ExcluirUsuario = function () {
+var DeleteRegistro = function () {
 
-    var empId = $("#hiddenId").val();
-
+    var _id = $("#hiddenId").val();
     $.ajax({
         type: "POST",
         url: "/Usuarios/Delete",
-        data: { Id: empId },
+        data: { Id: _id },
         success: function (result) {
-
-            $("#myModal").modal("hide");
-            $("#row_" + empId).remove();
             window.location.reload();
         }
-
     });
-
 }

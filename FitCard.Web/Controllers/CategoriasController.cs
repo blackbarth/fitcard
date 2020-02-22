@@ -25,7 +25,7 @@ namespace FitCard.Web.Controllers
         }
 
         // GET: User/NovoOuEditar
-        public async Task<ActionResult> NovoOuEditar(int id=0)
+        public async Task<ActionResult> NovoOuEditar(int id = 0)
         {
             if (id == 0)
             {
@@ -74,9 +74,10 @@ namespace FitCard.Web.Controllers
         }
 
 
-        public JsonResult Delete(int Id)
+        [HttpPost]
+        public async Task<JsonResult> Delete(int Id)
         {
-            _serService.Delete(Id);
+            await _serService.Delete(Id);
             return Json(new { status = "Success" });
         }
     }

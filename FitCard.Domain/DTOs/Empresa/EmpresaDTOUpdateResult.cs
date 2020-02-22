@@ -1,7 +1,7 @@
-﻿using System;
+﻿using FitCard.Domain.DTOs.Categoria;
+using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using FitCard.Domain.Entities;
 
 namespace FitCard.Domain.DTOs.Empresa
 {
@@ -61,7 +61,7 @@ namespace FitCard.Domain.DTOs.Empresa
         public string EmpresaConta { get; set; }
 
 
-        //public CategoriaEntity Categoria { get; set; }
+        //public CategoriaDTO Categoria { get; set; }
 
         [DisplayName("Categoria")]
         public int CategoriaId { get; set; }

@@ -1,28 +1,16 @@
-﻿
-var ConfirmDelete = function (Id) {
-
-    $("#hiddenId").val(Id);
-    $("#myModal").modal('show');
-
+﻿var ConfirmDelete = function (id) {
+    $("#hiddenId").val(id);
 }
 
-var ExcluirCategoria = function () {
+var DeleteRegistro = function () {
 
-
-
-    var empId = $("#hiddenId").val();
-
+    var _id = $("#hiddenId").val();
     $.ajax({
         type: "POST",
         url: "/Categorias/Delete",
-        data: { Id: empId },
-        success: function(result) {
-
-            $("#myModal").modal("hide");
-            $("#row_" + empId).remove();
+        data: { Id: _id },
+        success: function (result) {
             window.location.reload();
         }
-
     });
-
 }

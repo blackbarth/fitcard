@@ -1,9 +1,9 @@
-﻿using System;
+﻿using FitCard.Domain.DTOs.Categoria;
+using FitCard.Domain.Validations;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using FitCard.Domain.Entities;
-using FitCard.Domain.Validations;
 
 namespace FitCard.Domain.DTOs.Empresa
 {
@@ -68,7 +68,7 @@ namespace FitCard.Domain.DTOs.Empresa
 
         [DisplayName("Categoria")]
         public int CategoriaId { get; set; }
-        //public virtual CategoriaEntity Categoria { get; set; }
+        //public virtual CategoriaDTO Categoria { get; set; }
 
         //public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         //{

@@ -75,10 +75,10 @@ namespace FitCard.Web.Controllers
             }
         }
 
-
-        public JsonResult Delete(int Id)
+        [HttpPost]
+        public async Task<JsonResult> Delete(int Id)
         {
-            _serService.Delete(Id);
+            await _serService.Delete(Id);
             return Json(new { status = "Success" });
         }
     }

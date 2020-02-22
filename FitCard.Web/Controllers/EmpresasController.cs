@@ -4,10 +4,8 @@ using FitCard.Domain.Interfaces.Services.Categoria;
 using FitCard.Domain.Interfaces.Services.Empresa;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using FitCard.Domain.Entities;
 
 namespace FitCard.Web.Controllers
 {
@@ -111,6 +109,13 @@ namespace FitCard.Web.Controllers
             ViewData["EmpresaStatus"] = new SelectList(status, "Value", "Text");
 
             return View();
+        }
+
+        [HttpPost]
+        public async Task<JsonResult> Delete(int Id)
+        {
+            await _service.Delete(Id);
+            return Json(new { status = "Success" });
         }
     }
 }

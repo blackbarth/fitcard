@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FitCard.Data.Migrations
 {
     [DbContext(typeof(FitCardContext))]
-    [Migration("20200221201940_inicio")]
+    [Migration("20200221204619_inicio")]
     partial class inicio
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
