@@ -15,6 +15,7 @@ using Newtonsoft.Json.Serialization;
 using System;
 using System.Globalization;
 using Microsoft.AspNetCore.Localization;
+using Microsoft.Extensions.Localization;
 
 namespace FitCard.Web
 {
@@ -30,6 +31,8 @@ namespace FitCard.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddLocalization(options => { options.ResourcesPath = "Resources"; });
+
             ConfigureService.ConfigureDependenciesService(services); //adicionado configuracao statica do automapper
             ConfigureRepository.ConfigureDependenciesRepository(services);
 
@@ -84,7 +87,27 @@ namespace FitCard.Web
             #endregion
 
             #region Json
-            services.AddMvc()
+            services.AddMvc(options =>
+                {
+                    var F = services.BuildServiceProvider().GetService<IStringLocalizerFactory>();
+                    var L = F.Create("ModelBindingMessages", "FitCard.Web");
+                    options.ModelBindingMessageProvider.SetValueIsInvalidAccessor(
+                        (x) => L["The value '{0}' is invalid."]);
+                    options.ModelBindingMessageProvider.SetValueMustBeANumberAccessor(
+                        (x) => L["The field {0} must be a number."]);
+                    options.ModelBindingMessageProvider.SetMissingBindRequiredValueAccessor(
+                        (x) => L["A value for the '{0}' property was not provided.", x]);
+                    options.ModelBindingMessageProvider.SetAttemptedValueIsInvalidAccessor(
+                        (x, y) => L["The value '{0}' is not valid for {1}.", x, y]);
+                    options.ModelBindingMessageProvider.SetMissingKeyOrValueAccessor(
+                        () => L["A value is required."]);
+                    options.ModelBindingMessageProvider.SetUnknownValueIsInvalidAccessor(
+                        (x) => L["The supplied value is invalid for {0}.", x]);
+                    options.ModelBindingMessageProvider.SetValueMustNotBeNullAccessor(
+                        (x) => L["Null value is invalid.", x]);
+                })
+                .AddDataAnnotationsLocalization()
+                .AddViewLocalization()
                 .AddNewtonsoftJson(options =>
                     options.SerializerSettings.ContractResolver = new
                         CamelCasePropertyNamesContractResolver()).AddJsonOptions(options => options.JsonSerializerOptions.PropertyNameCaseInsensitive = true);
@@ -113,6 +136,13 @@ namespace FitCard.Web
             //.AddCors()
             //.AddJsonFormatters(); // JSON, or you can build your own custom one (above)
             #endregion
+            services.Configure<RequestLocalizationOptions>(options =>
+            {
+                var supportedCultures = new[] { new CultureInfo("en"), new CultureInfo("pt-BR") };
+                options.DefaultRequestCulture = new RequestCulture("en", "pt-BR");
+                options.SupportedCultures = supportedCultures;
+                options.SupportedUICultures = supportedCultures;
+            });
             services.AddControllersWithViews();
         }
 
