@@ -1,9 +1,7 @@
-﻿using System;
+﻿using FitCard.Domain.Validations;
+using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using FitCard.Domain.DTOs.Categoria;
-using FitCard.Domain.Entities;
-using FitCard.Domain.Validations;
 
 namespace FitCard.Domain.DTOs.Empresa
 {
@@ -49,6 +47,7 @@ namespace FitCard.Domain.DTOs.Empresa
 
         [Display(Name = "Data Cadastro")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [Data(ErrorMessage = "Ops!!! Data de Cadastro Inválida!")]
         public DateTime? EmpresaDataCadastro { get; set; }
 
         [DisplayName("Status")]
@@ -63,8 +62,6 @@ namespace FitCard.Domain.DTOs.Empresa
         [MaxLength(10)]
         public string EmpresaConta { get; set; }
 
-
-        //public CategoriaDTO Categoria { get; set; }
 
         [DisplayName("Categoria")]
         public int CategoriaId { get; set; }

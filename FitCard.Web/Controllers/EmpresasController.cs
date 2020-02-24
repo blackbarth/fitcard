@@ -1,11 +1,14 @@
-﻿using AutoMapper;
+﻿using System;
+using AutoMapper;
 using FitCard.Domain.DTOs.Empresa;
 using FitCard.Domain.Interfaces.Services.Categoria;
 using FitCard.Domain.Interfaces.Services.Empresa;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using X.PagedList;
 
 namespace FitCard.Web.Controllers
 {
@@ -22,9 +25,24 @@ namespace FitCard.Web.Controllers
             _mapper = mapper;
         }
 
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index([FromForm]string BuscarString, int pagina = 1)
         {
             var empresas = await _service.GetAll();
+
+
+            var emp = from m in empresas
+                      select m;
+
+
+
+            if (!string.IsNullOrEmpty(BuscarString))
+            {
+                empresas = emp.Where(s => s.EmpresaRazao.ToUpper().Contains(BuscarString.ToUpper()));
+            }
+
+            empresas = empresas.OrderBy(c => c.EmpresaRazao).ToPagedList(pagina, 5);
+
+
             return View(empresas);
         }
 
@@ -77,6 +95,7 @@ namespace FitCard.Web.Controllers
             {
                 if (empresa.Id == 0)
                 {
+                    empresa.EmpresaDataCadastro = DateTime.UtcNow;
                     await _service.Post(empresa);
                 }
                 else

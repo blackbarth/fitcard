@@ -1,5 +1,6 @@
 ﻿@using FitCard.Domain.DTOs.Empresa;
-@model IEnumerable<EmpresaDTO>
+@using X.PagedList.Mvc.Core
+@model X.PagedList.PagedList<EmpresaDTO>
 
 @{
     ViewData["Title"] = "Empresas";
@@ -7,39 +8,51 @@
 
 <h1>Empresas</h1>
 
+<form asp-controller="Empresas" asp-action="Index">
+    <div class="form-row">
+        <div class="form-group col-md-10">
+            <label title="Razão Social" class="control-label">Razão Social:</label>
+            <input type="text" name="BuscarString" class="form-control" />
+        </div>
+        <div class="form-group col-md-2">
+            <label class="control-label"><span>&nbsp;</span></label>
+            <input type="submit" value="Filtrar" class="form-control" />
+        </div>
+    </div>
 
+</form>
 <table class="table table-hover">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.EmpresaRazao)
+                Razão Social
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.EmpresaNomeFantasia)
+                Fantasia
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.EmpresaCNPJ)
+                CNPJ
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.EmpresaEmail)
+                E-mail
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.EmpresaEndereco)
+                Endereço
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.EmpresaCidade)
+               Cidade
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.EmpresaEstado)
+               UF
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.EmpresaTelefone)
+                Fone
             </th>
             @*<th>
                     @Html.DisplayNameFor(model => model.EmpresaDataCadastro)
                 </th>*@
             <th>
-                @Html.DisplayNameFor(model => model.EmpresaStatus)
+               Status
             </th>
             @*<th>
                     @Html.DisplayNameFor(model => model.EmpresaAgencia)
@@ -50,7 +63,7 @@
             @*<th>
                     @Html.DisplayNameFor(model => model.CategoriaId)
                 </th>*@
-            <th><a asp-action="NovoOuEditar" class="btn btn-success"><i class="far fa-plus-square"></i> Empresa</a></th>
+            <th style="text-align: end"><a asp-action="NovoOuEditar" class="btn btn-success"><i class="far fa-plus-square"></i> Empresa</a></th>
         </tr>
     </thead>
     <tbody>
@@ -96,19 +109,28 @@
                 @*<td>
                         @Html.DisplayFor(modelItem => item.Categoria.CategoriaNome)
                     </td>*@
-                <td>
+                <td style="text-align: end">
                     <a asp-action="NovoOuEditar" asp-route-id="@item.Id"><i class="fa fa-marker fa-lg"></i></a>
                     @*<a class="text-danger ml-1" id="btn-confirm" onclick="ConfirmDelete('@item.Id')" ><i class="fa fa-trash-alt fa-lg"></i></a>*@
-                    <a class="text-danger ml-1" id="btn-confirm" data-toggle="modal" onclick="ConfirmDelete('@item.Id')" data-target="#exampleModalCenter"><i class="fa fa-trash-alt fa-lg"></i></a>
+                    <a class="text-danger ml-1" id="btn-confirm" data-toggle="modal" onclick="ConfirmDelete('@item.Id')" data-target="#modalCentralizado"><i class="fa fa-trash-alt fa-lg"></i></a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
-
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <tr>
+                <td class="col-md-6" style="text-align: left"> @Html.PagedListPager(Model, pagina => Url.Action("Index", new { pagina }))</td>
+                <td class="col-md-6" style="text-align: end"><span>Listando registros de @Model.FirstItemOnPage a @Model.LastItemOnPage de um total de @Model.TotalItemCount</span> </td>
+            </tr>
+        </table>
+    </div>
+</div>
 <input type="hidden" id="hiddenId" />
 <!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="modalCentralizado" tabindex="-1" role="dialog" aria-labelledby="modalTituloCentralizado" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">

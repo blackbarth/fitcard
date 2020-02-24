@@ -1,4 +1,5 @@
-﻿using FitCard.Data.Context;
+﻿using System.Threading.Tasks;
+using FitCard.Data.Context;
 using FitCard.Data.Repository;
 using FitCard.Domain.Entities;
 using FitCard.Domain.Repository;
@@ -12,6 +13,10 @@ namespace FitCard.Data.Implementations
         public EmpresaImplementation(FitCardContext context) : base(context)
         {
             _dataset = context.Set<EmpresaEntity>();
+        }
+        public async Task<EmpresaEntity> FindByRazao(string busca)
+        {
+            return await _dataset.FirstOrDefaultAsync(u => u.EmpresaRazao.Contains(busca));
         }
     }
 }

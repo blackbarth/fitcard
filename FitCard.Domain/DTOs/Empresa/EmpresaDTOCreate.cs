@@ -1,5 +1,4 @@
-﻿using FitCard.Domain.DTOs.Categoria;
-using FitCard.Domain.Validations;
+﻿using FitCard.Domain.Validations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -49,6 +48,7 @@ namespace FitCard.Domain.DTOs.Empresa
 
         [Display(Name = "Data Cadastro")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [Data(ErrorMessage = "Ops!!! Data de Cadastro Inválida!")]
         public DateTime? EmpresaDataCadastro { get; set; }
 
         [DisplayName("Status")]
@@ -64,65 +64,9 @@ namespace FitCard.Domain.DTOs.Empresa
         public string EmpresaConta { get; set; }
 
 
-        //public CategoriaEntity Categoria { get; set; }
-
         [DisplayName("Categoria")]
         public int CategoriaId { get; set; }
-        //public virtual CategoriaDTO Categoria { get; set; }
 
-        //public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        //{
-
-
-        //    var isValid = true;
-        //    string GetErrorMessage() => $"CNPJ INVALIDO.";
-        //    //logica de validação customizada
-
-        //    int[] multiplicador1 = new int[12] { 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
-        //    int[] multiplicador2 = new int[13] { 6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
-
-        //    string cnpj = EmpresaCNPJ.ToString().Trim().Replace(".", "").Replace("-", "").Replace("/", "");
-        //    if (cnpj.Length != 14)
-        //    {
-        //        isValid = false;
-        //    }
-
-
-        //    string tempCnpj = cnpj.Substring(0, 12);
-        //    int soma = 0;
-
-        //    for (int i = 0; i < 12; i++)
-        //        soma += int.Parse(tempCnpj[i].ToString()) * multiplicador1[i];
-
-        //    int resto = (soma % 11);
-        //    if (resto < 2)
-        //        resto = 0;
-        //    else
-        //        resto = 11 - resto;
-
-        //    string digito = resto.ToString();
-        //    tempCnpj = tempCnpj + digito;
-        //    soma = 0;
-        //    for (int i = 0; i < 13; i++)
-        //        soma += int.Parse(tempCnpj[i].ToString()) * multiplicador2[i];
-
-        //    resto = (soma % 11);
-        //    if (resto < 2)
-        //        resto = 0;
-        //    else
-        //        resto = 11 - resto;
-
-        //    digito = digito + resto.ToString();
-
-        //    if (!cnpj.EndsWith(digito))
-        //    {
-        //        yield return new ValidationResult(
-        //            $"CNPJ INVALIDO.",
-        //            new[] { nameof(this.EmpresaCNPJ) });
-        //    }
-
-
-        //}
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             if (CategoriaId == 1 && string.IsNullOrEmpty(EmpresaTelefone))

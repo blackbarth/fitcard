@@ -67,15 +67,11 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label asp-for="EmpresaDataCadastro" class="control-label"></label>
-                    <input asp-for="EmpresaDataCadastro" class="form-control" readonly="readonly" />
+                    <input asp-for="EmpresaDataCadastro" class="form-control" placeholder="__/__/____" />
                     <span asp-validation-for="EmpresaDataCadastro" class="text-danger"></span>
                 </div>
             </div>
-            <div class="form-group">
-                <label asp-for="EmpresaStatus" class="control-label"></label>
-                <select asp-for="EmpresaStatus" class="form-control" asp-items="ViewBag.EmpresaStatus"></select>
-                <span asp-validation-for="EmpresaStatus" class="text-danger"></span>
-            </div>
+
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label asp-for="EmpresaAgencia" class="control-label"></label>
@@ -87,6 +83,11 @@
                     <input asp-for="EmpresaConta" placeholder="__.___-_" class="form-control" />
                     <span asp-validation-for="EmpresaConta" class="text-danger"></span>
                 </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpresaStatus" class="control-label"></label>
+                <select asp-for="EmpresaStatus" class="form-control" asp-items="ViewBag.EmpresaStatus"></select>
+                <span asp-validation-for="EmpresaStatus" class="text-danger"></span>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">

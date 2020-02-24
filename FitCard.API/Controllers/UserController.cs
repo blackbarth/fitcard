@@ -14,6 +14,7 @@ namespace FitCard.API.Controllers
     public class UserController : ControllerBase
     {
         private IUserService _service;
+
         public UserController(IUserService service)
         {
             _service = service;
@@ -68,7 +69,8 @@ namespace FitCard.API.Controllers
                 var result = await _service.Post(user);
                 if (result != null)
                 {
-                    return Created(new Uri(Url.Link("GetWithId", new { id = result.Id })), result);
+                    //return Created(new Uri(Url.Link("/api/user/", new { id = result.Id })), result);
+                    return CreatedAtAction(nameof(Get), new { id = result.Id }, result);
                 }
                 else
                 {

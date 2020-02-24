@@ -13,6 +13,8 @@ using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using System;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
 
 namespace FitCard.Web
 {
@@ -106,10 +108,10 @@ namespace FitCard.Web
                 //.AddApiExplorer()
                 //.AddAuthorization()
                 .AddFormatterMappings();
-                //.AddCacheTagHelper()
-                //.AddDataAnnotations()
-                //.AddCors()
-                //.AddJsonFormatters(); // JSON, or you can build your own custom one (above)
+            //.AddCacheTagHelper()
+            //.AddDataAnnotations()
+            //.AddCors()
+            //.AddJsonFormatters(); // JSON, or you can build your own custom one (above)
             #endregion
             services.AddControllersWithViews();
         }
@@ -117,6 +119,17 @@ namespace FitCard.Web
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            #region Globalization
+            // Definindo a cultura padrão: pt-BR
+            var supportedCultures = new[] { new CultureInfo("pt-BR") };
+            app.UseRequestLocalization(new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture(culture: "pt-BR", uiCulture: "pt-BR"),
+                SupportedCultures = supportedCultures,
+                SupportedUICultures = supportedCultures
+            });
+
+            #endregion Globalization
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

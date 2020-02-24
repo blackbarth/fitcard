@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Text.RegularExpressions;
 
 namespace FitCard.Domain.Validations
 {
@@ -7,23 +8,25 @@ namespace FitCard.Domain.Validations
     public class DataAttribute : ValidationAttribute
     {
 
-
-        //protected override ValidationResult IsValid(object value, ValidationContext validationContext)
-        //{
-        //    DateTime dateTime = Convert.ToDateTime(value);
-
-        //    if (dateTime <= DateTime.Now)
-        //    {
-        //        return new ValidationResult("Erros");
-        //    }
-
-
-        //    return ValidationResult.Success;
-        //}
         public override bool IsValid(object value)
         {
-            DateTime dateTime = Convert.ToDateTime(value);
-            return dateTime <= DateTime.Now;
+            bool valido = true;
+
+            if (value == null || string.IsNullOrEmpty(value.ToString()))
+            {
+                valido = false;
+            }
+
+
+
+            if (value != null)
+            {
+                DateTime data = Convert.ToDateTime(value);
+                Regex r = new Regex(@"^([0]?[1-9]|[1|2][0-9]|[3][0|1])[./-]([0]?[1-9]|[1][0-2])[./-]([0-9]{4}|[0-9]{2})$");
+                valido = r.Match(data.ToShortDateString()).Success;
+            }
+
+            return valido;
         }
     }
 }

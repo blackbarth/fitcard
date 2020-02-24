@@ -21,6 +21,7 @@ $(document).ready(function () {
     $("#EmpresaCNPJ").mask("99.999.999/9999-99");
     $("#EmpresaAgencia").mask("999-9");
     $("#EmpresaConta").mask("99.999-9");
+    $("#EmpresaDataCadastro").mask("99/99/9999");
 
 
     $("#EmpresaTelefone")

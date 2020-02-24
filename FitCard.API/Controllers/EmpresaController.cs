@@ -14,7 +14,7 @@ namespace FitCard.API.Controllers
     public class EmpresaController : ControllerBase
     {
         private IEmpresaService _service;
-
+        private const string ById = "ById";
         public EmpresaController(IEmpresaService service)
         {
             _service = service;
@@ -69,7 +69,8 @@ namespace FitCard.API.Controllers
                 var result = await _service.Post(user);
                 if (result != null)
                 {
-                    return Created(new Uri(Url.Link("GetWithId", new { id = result.Id })), result);
+                    //return Created(new Uri(Url.Link("GetById", new { id = result.Id })), result);
+                    return CreatedAtAction(nameof(Get), new { id = result.Id }, result);
                 }
                 else
                 {

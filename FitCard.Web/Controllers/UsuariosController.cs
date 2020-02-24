@@ -2,8 +2,9 @@
 using FitCard.Domain.DTOs.User;
 using FitCard.Domain.Interfaces.Services.User;
 using Microsoft.AspNetCore.Mvc;
-using System;
+using System.Linq;
 using System.Threading.Tasks;
+using X.PagedList;
 
 namespace FitCard.Web.Controllers
 {
@@ -19,10 +20,23 @@ namespace FitCard.Web.Controllers
         }
 
         // GET: User
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index([FromForm]string BuscarString, int pagina = 1)
         {
-            var usuarios = _serService.GetAll();
-            return View(await usuarios);
+            var usuarios = await  _serService.GetAll();
+
+            var usa = from m in usuarios
+                      select m;
+
+
+
+            if (!string.IsNullOrEmpty(BuscarString))
+            {
+                usuarios = usa.Where(s => s.Nome.ToUpper().Contains(BuscarString.ToUpper()));
+            }
+            usuarios = usuarios.OrderBy(c => c.Nome).ToPagedList(pagina, 5);
+
+
+            return View(usuarios);
         }
 
 

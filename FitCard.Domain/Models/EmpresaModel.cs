@@ -20,6 +20,15 @@ namespace FitCard.Domain.Models
             set { _empresaRazao = value; }
         }
 
+
+        private DateTime? _empresaDataCadastro;
+
+        public DateTime? EmpresaDataCadastro
+        {
+            get { return _empresaDataCadastro; }
+            set { _empresaDataCadastro = value; }
+        }
+
         private string _empresaNomeFantasia;
 
         public string EmpresaNomeFantasia

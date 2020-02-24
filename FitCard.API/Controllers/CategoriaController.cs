@@ -11,6 +11,7 @@ namespace FitCard.API.Controllers
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize("Bearer")]
     public class CategoriaController : ControllerBase
     {
         private ICategoriaService _service;
@@ -19,7 +20,7 @@ namespace FitCard.API.Controllers
             _service = service;
         }
         [HttpGet]
-        [Authorize("Bearer")]
+        //[Authorize("Bearer")]
         public async Task<ActionResult> GetAll()
         {
             if (!ModelState.IsValid)
@@ -36,7 +37,7 @@ namespace FitCard.API.Controllers
             }
         }
 
-        [Authorize("Bearer")]
+        //[Authorize("Bearer")]
         [HttpGet]
         [Route("{id}")]
         public async Task<ActionResult> Get(int id)
@@ -55,7 +56,7 @@ namespace FitCard.API.Controllers
             }
         }
 
-        [Authorize("Bearer")]
+        //[Authorize("Bearer")]
         [HttpPost]
         public async Task<ActionResult> Post([FromBody] CategoriaDTOCreate user)
         {
@@ -68,7 +69,9 @@ namespace FitCard.API.Controllers
                 var result = await _service.Post(user);
                 if (result != null)
                 {
-                    return Created(new Uri(Url.Link("GetWithId", new { id = result.Id })), result);
+                    //return Created(new Uri(Url.Link("GetById", new { id = result.Id })), result);
+                    return CreatedAtAction(nameof(Get), new { id = result.Id }, result);
+
                 }
                 else
                 {
@@ -81,7 +84,7 @@ namespace FitCard.API.Controllers
             }
         }
 
-        [Authorize("Bearer")]
+        //[Authorize("Bearer")]
         [HttpPut]
         public async Task<ActionResult> Put([FromBody] CategoriaDTOUpdate user)
         {
@@ -107,7 +110,7 @@ namespace FitCard.API.Controllers
             }
         }
 
-        [Authorize("Bearer")]
+        //[Authorize("Bearer")]
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
         {

@@ -1,8 +1,6 @@
-﻿using System;
+﻿using FitCard.Domain.DTOs.Empresa;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using FitCard.Domain.DTOs;
-using FitCard.Domain.DTOs.Empresa;
 
 namespace FitCard.Domain.Interfaces.Services.Empresa
 {

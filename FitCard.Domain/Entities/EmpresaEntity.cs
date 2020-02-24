@@ -4,7 +4,6 @@ namespace FitCard.Domain.Entities
 {
     public class EmpresaEntity : BaseEntity
     {
-
         public string EmpresaRazao { get; set; }
         public string EmpresaNomeFantasia { get; set; }
         public string EmpresaCnpj { get; set; }
@@ -19,6 +18,5 @@ namespace FitCard.Domain.Entities
         public string EmpresaConta { get; set; }
         public int CategoriaId { get; set; }
 
-        //public virtual CategoriaEntity Categoria { get; set; }
     }
 }

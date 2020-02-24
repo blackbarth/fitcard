@@ -1,8 +1,6 @@
-﻿using System;
+﻿using FitCard.Domain.DTOs.Categoria;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using FitCard.Domain.DTOs;
-using FitCard.Domain.DTOs.Categoria;
 
 namespace FitCard.Domain.Interfaces.Services.Categoria
 {

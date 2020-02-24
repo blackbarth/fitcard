@@ -2,8 +2,9 @@
 using FitCard.Domain.DTOs.Categoria;
 using FitCard.Domain.Interfaces.Services.Categoria;
 using Microsoft.AspNetCore.Mvc;
-using System;
+using System.Linq;
 using System.Threading.Tasks;
+using X.PagedList;
 
 namespace FitCard.Web.Controllers
 {
@@ -12,15 +13,31 @@ namespace FitCard.Web.Controllers
         private ICategoriaService _serService;
         private readonly IMapper _mapper;
 
+
         public CategoriasController(ICategoriaService serService, IMapper mapper)
         {
             _serService = serService;
             _mapper = mapper;
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index([FromForm]string BuscarString, int pagina = 1)
         {
-            var categorias = _serService.GetAll();
-            return View(await categorias);
+            var categorias = await _serService.GetAll();
+
+       
+            var cat = from m in categorias
+                      select m;
+
+
+
+            if (!string.IsNullOrEmpty(BuscarString))
+            {
+                categorias = cat.Where(s => s.CategoriaNome.ToUpper().Contains(BuscarString.ToUpper()));
+            }
+
+            categorias = categorias.OrderBy(c => c.CategoriaNome).ToPagedList(pagina, 5);
+
+
+            return View(categorias);
 
         }
 

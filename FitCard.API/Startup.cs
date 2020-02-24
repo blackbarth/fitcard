@@ -11,7 +11,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Rewrite;
 using Microsoft.OpenApi.Models;
 
@@ -138,6 +140,17 @@ namespace FitCard.API
                 app.UseDeveloperExceptionPage();
             }
 
+            #region Globalization
+            // Definindo a cultura padrão: pt-BR
+            var supportedCultures = new[] { new CultureInfo("pt-BR") };
+            app.UseRequestLocalization(new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture(culture: "pt-BR", uiCulture: "pt-BR"),
+                SupportedCultures = supportedCultures,
+                SupportedUICultures = supportedCultures
+            });
+
+            #endregion
             app.UseHttpsRedirection();
             #region Swagger
 
@@ -145,10 +158,24 @@ namespace FitCard.API
             //habilitar middleware
             app.UseSwagger();
 
+            //app.UseSwaggerUI(c =>
+            //{
+            //    c.RoutePrefix = string.Empty;
+            //    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Implementação Web API - FitCard");
+
+
+            //});
+
             app.UseSwaggerUI(c =>
             {
+#if DEBUG
+               // For Debug in Kestrel
+               c.SwaggerEndpoint("/swagger/v1/swagger.json", "Implementação Web API - FitCard");
+#else
+                // To deploy on IIS
+                c.SwaggerEndpoint("https://maximizi.com/fitcardapi/swagger/v1/swagger.json", "Implementação Web API - FitCard");
+#endif
                 c.RoutePrefix = string.Empty;
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Implementação Web API - FitCard");
             });
 
             //Redireciona o link para o Swagger, quando acessar a rota principal

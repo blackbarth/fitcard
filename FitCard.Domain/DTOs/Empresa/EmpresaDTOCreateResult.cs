@@ -2,6 +2,7 @@
 using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using FitCard.Domain.Validations;
 
 namespace FitCard.Domain.DTOs.Empresa
 {
@@ -45,7 +46,8 @@ namespace FitCard.Domain.DTOs.Empresa
         public string EmpresaTelefone { get; set; }
 
         [Display(Name = "Data Cadastro")]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        //[DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [Data(ErrorMessage = "Ops!!! Data de Cadastro Inválida!")]
         public DateTime? EmpresaDataCadastro { get; set; }
 
         [DisplayName("Status")]
