@@ -23,7 +23,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "APP", "APP", "{E8EBE1C7-CF0
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FitCard.API", "FitCard.API\FitCard.API.csproj", "{2FD1288D-4ACC-4DB2-8DA1-33AD3AF46A4F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitCard.Web", "FitCard.Web\FitCard.Web.csproj", "{04DE2698-0DB5-4324-977B-5C17192B34A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FitCard.Web", "FitCard.Web\FitCard.Web.csproj", "{04DE2698-0DB5-4324-977B-5C17192B34A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

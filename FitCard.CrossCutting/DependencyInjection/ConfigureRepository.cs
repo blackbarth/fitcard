@@ -22,7 +22,7 @@ namespace FitCard.CrossCutting.DependencyInjection
             //    );
 
             serviceColletion.AddDbContext<FitCardContext>(
-                options => options.UseSqlServer("Server=localhost;Database=FitCardDB;User Id=sa;Pwd=W#k54*%#")
+                options => options.UseSqlServer("Server=maximizi.com;Database=FitCardDB;User Id=fitcard;Pwd=fitcard")
             );
         }
     }

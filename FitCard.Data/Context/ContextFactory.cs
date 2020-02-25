@@ -10,7 +10,7 @@ namespace FitCard.Data.Context
             //Usado para criar as migra
             //Conexao para MySQL
             //var connectionString = "Server=localhost;Port=3306;Database=FitCardDB;Uid=root;Pwd=W#k54*%#";
-            var connectionString = "Server=localhost;Database=FitCardDB;User Id=sa;Pwd=W#k54*%#";
+            var connectionString = "Server=maximizi.com;Database=FitCardDB;User Id=fitcard;Pwd=fitcard";
             var optionsBuilder = new DbContextOptionsBuilder<FitCardContext>();
             //conexao para MySql
             //optionsBuilder.UseMySql(connectionString);

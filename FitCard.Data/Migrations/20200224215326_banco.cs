@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FitCard.Data.Migrations
 {
-    public partial class inicio : Migration
+    public partial class banco : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
