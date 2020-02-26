@@ -23,10 +23,6 @@ $(document).ready(function () {
     $("#EmpresaConta").mask("99.999-9");
     $("#EmpresaDataCadastro").mask("99/99/9999");
 
-    $('#EmpresaDataCadastro').blur()
-    {
-
-    };
 
     $("#EmpresaTelefone")
         .mask("(99) 99999-9999")
